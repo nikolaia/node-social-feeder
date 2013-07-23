@@ -1,0 +1,11 @@
+{
+  "name": "nodejs-social-feeder",
+  "description": "Merge your social feeds to one single feed. Including facebook, twitter, github and/or instagram",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.x",
+    "mtwitter": "~1.5.2",
+    "instagram-node-lib": "~0.1.1",
+    "async": "~0.2.9"
+  }
+}
