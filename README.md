@@ -3,7 +3,7 @@ nodejs-social-feeder
 
 Merge your social feeds to one single feed. 
 
-Currently only includes twitter and instagram, but will later include facebook and github also.
+Currently includes twitter, github and instagram.
 
 Remember to add a config.js file like this:
 
