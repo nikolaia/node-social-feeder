@@ -1,19 +1,20 @@
 var feed = {}, async = require('async'),
 	Twitter = require('mtwitter'), 
 	Instagram = require('instagram-node-lib'),
-	config = require('./config'),
 	GitHubApi = require("github");
 
+if (process.env.NODE_ENV == 'development') require('./config')
+
 var twitter = new Twitter({
-  consumer_key: config.twitter.consumer_key,
-  consumer_secret: config.twitter.consumer_secret,
-  access_token_key: config.twitter.access_token_key,
-  access_token_secret: config.twitter.access_token_secret
+  consumer_key: process.env.twitter_consumer_key,
+  consumer_secret: process.env.twitter_consumer_secret,
+  access_token_key: process.env.twitter_access_token_key,
+  access_token_secret: process.env.twitter_access_token_secret
 });
 
-Instagram.set('client_id', config.instagram.client_id);
-Instagram.set('client_secret', config.instagram.client_secret);
-Instagram.set('access_token', config.instagram.access_token);
+Instagram.set('client_id', process.env.instagram_client_id);
+Instagram.set('client_secret', process.env.instagram_client_secret);
+Instagram.set('access_token', process.env.instagram_access_token);
 
 var github = new GitHubApi({
     version: "3.0.0",

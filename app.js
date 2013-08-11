@@ -1,7 +1,6 @@
 var express = require('express'), 
 	app = express(),
-	feed = require('./feed'),
-	config = require('./config');
+	feed = require('./feed');
 
 app.get('/refreshFeed', function(req, res) {
 	feed.updateFeed();
@@ -19,5 +18,5 @@ app.get('/', function(req, res) {
 	res.json(feed.cache);
 });
 
-app.listen(config.port);
-console.log('Listening on port '+ config.port);
+app.listen(process.env.PORT);
+console.log('Listening on port '+ process.env.PORT);
