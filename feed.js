@@ -56,6 +56,7 @@ feed.updateFeed = function() {
 	feed.cache = new Array();
 	async.parallel([
 		function(callback) {
+			console.log("twitter starting");
 			twitter.get('statuses/user_timeline', {screen_name: 'nikolaiii', count: 15}, function(err, data) {
 				if (err) console.log(err);
 				var result = new Array();
@@ -69,10 +70,12 @@ feed.updateFeed = function() {
 						link: item.url
 					});
 				});
+				console.log("twitter done");
 				callback(err,result);
 		 	});
 		},
 		function(callback) {
+			console.log("instagram starting");
 			Instagram.users.recent({ 
 				user_id: 2296300,
 				count: 15,
@@ -88,6 +91,7 @@ feed.updateFeed = function() {
 							link: item.url
 						});
 					});
+					console.log("instagram done");
 					callback(null, result);
 				},
 				error: function(errorMessage, errorObject, caller){
@@ -96,6 +100,7 @@ feed.updateFeed = function() {
 			});
 		},
 		function(callback) {
+			console.log("instagram starting");
 			github.events.getFromUser({
 			    user: "nikolaia",
 			    count: 15
@@ -112,6 +117,7 @@ feed.updateFeed = function() {
 						link: feed.GithubLink(item)
 					});
 				});
+				console.log("github done");
 				callback(null, result);
 			});
 		}
