@@ -59,6 +59,7 @@ feed.updateFeed = function() {
 	async.parallel([
 		function(callback) {
 			twitter.get('statuses/user_timeline', {screen_name: 'nikolaiii', count: 15}, function(err, data) {
+				if (err) console.log(err);
 				var result = new Array();
 				data.forEach(function(item) { 
 					result.push({
@@ -90,7 +91,11 @@ feed.updateFeed = function() {
 						});
 					});
 					callback(null, result);
-				}
+				},
+				error: function(errorMessage, errorObject, caller){
+			      console.log(errorMessage);
+			      callback(errorMessage, errorObject);
+			    }
 			});
 		},
 		function(callback) {
