@@ -100,7 +100,7 @@ feed.updateFeed = function() {
 			});
 		},
 		function(callback) {
-			console.log("instagram starting");
+			console.log("github starting");
 			github.events.getFromUser({
 			    user: "nikolaia",
 			    count: 15
