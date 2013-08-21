@@ -7,7 +7,8 @@ var twitter = new Twitter({
   consumer_key: process.env.twitter_consumer_key,
   consumer_secret: process.env.twitter_consumer_secret,
   access_token_key: process.env.twitter_access_token_key,
-  access_token_secret: process.env.twitter_access_token_secret
+  access_token_secret: process.env.twitter_access_token_secret,
+  application_only: true
 });
 
 Instagram.set('client_id', process.env.instagram_client_id);
