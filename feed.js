@@ -55,6 +55,8 @@ feed.updateFeed = function() {
 	console.log("Starting feed update.");
 	feed.cache = new Array();
 	async.parallel([
+		/*
+		-- THIS CODE IS USELESS UNTIL I FIND OUT HOW TO GO AROUND TWITTERS BLACKLISTING OF HEROKU IP's
 		function(callback) {
 			console.log("twitter starting");
 			twitter.get('statuses/user_timeline', {screen_name: 'nikolaiii', count: 15}, function(err, data) {
@@ -74,6 +76,7 @@ feed.updateFeed = function() {
 				callback(err,result);
 		 	});
 		},
+		*/
 		function(callback) {
 			console.log("instagram starting");
 			Instagram.users.recent({ 
