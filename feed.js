@@ -92,7 +92,7 @@ feed.updateFeed = function() {
 							text: item.caption ? item.caption.text : "",
 							date: new Date(parseInt(item.created_time) * 1000),
 							type: 'instagram',
-							link: item.url
+							link: item.link
 						});
 					});
 					console.log("instagram done");
