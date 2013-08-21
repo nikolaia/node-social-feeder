@@ -3,8 +3,6 @@ var feed = {}, async = require('async'),
 	Instagram = require('instagram-node-lib'),
 	GitHubApi = require("github");
 
-if (process.env.NODE_ENV == 'development') require('./config')
-
 var twitter = new Twitter({
   consumer_key: process.env.twitter_consumer_key,
   consumer_secret: process.env.twitter_consumer_secret,
@@ -21,7 +19,7 @@ var github = new GitHubApi({
     timeout: 5000
 });
 
-feed.cache = Array();
+feed.cache = new Array();
 feed.lastUpdated = new Date();
 
 
@@ -93,8 +91,7 @@ feed.updateFeed = function() {
 					callback(null, result);
 				},
 				error: function(errorMessage, errorObject, caller){
-			      console.log(errorMessage);
-			      callback(errorMessage, errorObject);
+			      console.log(errorMessage, errorObject);
 			    }
 			});
 		},

@@ -1,7 +1,7 @@
 var express = require('express'), 
 	app = express(),
 	feed = require('./feed');
-
+	
 app.get('/refreshFeed', function(req, res) {
 	feed.updateFeed();
 	res.write("Feed update process was triggered.")
