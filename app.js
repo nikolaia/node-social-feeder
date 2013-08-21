@@ -15,7 +15,7 @@ app.get('/', function(req, res) {
 		console.log("Feed is empty or more than one day old!");
 		feed.updateFeed();
 	}
-	res.json(feed.cache);
+	res.jsonp(feed.cache);
 });
 
 app.listen(process.env.PORT);
