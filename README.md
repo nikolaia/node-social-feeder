@@ -5,22 +5,12 @@ Merge your social feeds to one single feed.
 
 Currently includes twitter, github and instagram.
 
-Remember to add a config.js file like this:
+Local testing can be done by adding a config.js with the values under and running in NODE_ENV == 'development'
 
-	var config = {}
-
-	config.twitter = {
-		consumer_key: 'replace_me',
-		consumer_secret: 'replace_me',
-		access_token_key: 'replace_me',
-		access_token_secret: 'replace_me'
-	};
-	config.instagram = {
-		client_id: 'replace_me',
-		client_secret: 'replace_me',
-		access_token: 'replace_me'
-	};
-
-	config.port = 3000;
-
-	module.exports = config;
+	process.env['twitter_consumer_key'] = 'replace_me';
+	process.env['twitter_consumer_secret'] =  'replace_me';
+	process.env['twitter_access_token_key'] =  'replace_me';
+	process.env['twitter_access_token_secret'] =  'replace_me';
+	process.env['instagram_client_id'] = 'replace_me';
+	process.env['instagram_client_secret'] = 'replace_me';
+	process.env['instagram_access_token'] = 'replace_me';
