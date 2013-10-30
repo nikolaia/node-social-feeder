@@ -23,35 +23,6 @@ var github = new GitHubApi({
 feed.cache = new Array();
 feed.lastUpdated = new Date();
 
-
-feed.GithubMessage = function(item) {
-	switch (item.type) {
-		case 'PushEvent':
-			return item.payload.commits[0].message + " in " + item.repo.name;
-			break;
-		case 'FollowEvent':
-			return "Started following "+item.payload.target.login;
-			break;
-		default:
-			return "No info"
-			break;
-	}
-}
-
-feed.GithubLink = function(item) {
-	switch (item.type) {
-		case 'PushEvent':
-			return item.payload.commits[0].html_url;
-			break;
-		case 'FollowEvent':
-			return item.payload.target.url;
-			break;
-		default:
-			return null
-			break;
-	}
-}
-
 feed.updateFeed = function() {
 	console.log("Starting feed update.");
 	feed.cache = new Array();
@@ -68,7 +39,7 @@ feed.updateFeed = function() {
 						text: item.text,
 						date: new Date(item.created_at.replace(/^\w+ (\w+) (\d+) ([\d:]+) \+0000 (\d+)$/, "$1 $2 $4 $3 UTC")),
 						type: 'twitter',
-						link: "https://twitter.com/"+item.screen_name+"/status/" + item.id_str
+						link: "https://twitter.com/"+item.user.screen_name+"/status/" + item.id_str
 					});
 				});
 				console.log("twitter done");
@@ -108,14 +79,13 @@ feed.updateFeed = function() {
 			}, function(err, res) {
 			    var result = new Array();
 				res.forEach(function(item) { 
-					if (item.type == 'PushEvent') // TODO: Add all Github eventTypes and make support for them.
-					result.push({
+					result.filter(function(v) {v.type == 'PushEvent'} ).push({
 						score: 0,
 						image: item.actor.avatar_url,
-						text: feed.GithubMessage(item),
+						text: "Pushed to"+item.repo.name+": "+item.payload.commits[0].message,
 						date: new Date(item.created_at),
 						type: 'github',
-						link: feed.GithubLink(item) == null ? null : feed.GithubLink(item)
+						link: item.payload.commits[0].html_url
 					});
 				});
 				console.log("github done");
