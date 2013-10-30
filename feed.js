@@ -78,8 +78,8 @@ feed.updateFeed = function() {
 			    count: 15
 			}, function(err, res) {
 			    var result = new Array();
-				res.forEach(function(item) { 
-					result.filter(function(v) {v.type == 'PushEvent'} ).push({
+				res.filter(function(v) {v.type == 'PushEvent'} ).forEach(function(item) { 
+					result.push({
 						score: 0,
 						image: item.actor.avatar_url,
 						text: "Pushed to"+item.repo.name+": "+item.payload.commits[0].message,
