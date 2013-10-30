@@ -47,7 +47,7 @@ feed.GithubLink = function(item) {
 			return item.payload.target.url;
 			break;
 		default:
-			return "No info"
+			return null
 			break;
 	}
 }
@@ -68,7 +68,7 @@ feed.updateFeed = function() {
 						text: item.text,
 						date: new Date(item.created_at.replace(/^\w+ (\w+) (\d+) ([\d:]+) \+0000 (\d+)$/, "$1 $2 $4 $3 UTC")),
 						type: 'twitter',
-						link: item.url
+						link: "https://twitter.com/"+item.screen_name+"/status/" + item.id_str
 					});
 				});
 				console.log("twitter done");
@@ -115,7 +115,7 @@ feed.updateFeed = function() {
 						text: feed.GithubMessage(item),
 						date: new Date(item.created_at),
 						type: 'github',
-						link: feed.GithubLink(item)
+						link: feed.GithubLink(item) == null ? null : feed.GithubLink(item)
 					});
 				});
 				console.log("github done");
