@@ -82,10 +82,10 @@ feed.updateFeed = function() {
 					result.push({
 						score: 0,
 						image: item.actor.avatar_url,
-						text: "Pushed to"+item.repo.name+": "+item.payload.commits[0].message,
+						text: "Pushed to "+item.repo.name+": "+item.payload.commits[0].message,
 						date: new Date(item.created_at),
 						type: 'github',
-						link: item.payload.commits[0].html_url
+						link: item.payload.commits[0].html_url ? item.payload.commits[0].html_url  : item.payload.commits[0].url 
 					});
 				});
 				console.log("github done");
