@@ -78,7 +78,7 @@ feed.updateFeed = function() {
 			    count: 15
 			}, function(err, res) {
 			    var result = new Array();
-				res.filter(function(v) {v.type == 'PushEvent'} ).forEach(function(item) { 
+				res.filter(function(v) { return v.type == 'PushEvent'} ).forEach(function(item) { 
 					result.push({
 						score: 0,
 						image: item.actor.avatar_url,
