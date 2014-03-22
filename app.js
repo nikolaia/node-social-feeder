@@ -1,4 +1,3 @@
-require('newrelic');
 var express = require('express'), 
 	app = express(),
 	feed = require('./feed');
