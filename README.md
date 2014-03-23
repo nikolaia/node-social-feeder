@@ -10,7 +10,10 @@ Go to /api to get the merged feed
 The untouched api responses are available at:
 /api/twitter /api/github /api/instagram
 
-TODO: Add support for facebook and more github events (only pushevents right now).
+TODO: 
+* Add support for facebook.
+* More github events (only pushevents right now).
+* Better cache system.
 
 Add a .env file with the variables below and use 'foreman start' to test localy:
 
