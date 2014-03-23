@@ -87,6 +87,7 @@ feed.getGithub = function(callback) {
   };
 	request(options, function (error, response, body) {
 		// TODO: Add support for more eventtypes
+		console.log(error);
 		callback(error, JSON.parse(body).filter(function(v) { return v.type == 'PushEvent'} ));
 	});
 }
