@@ -15,6 +15,7 @@ TODO:
 * Add support for facebook.
 * More github events (only pushevents right now).
 * Better cache system.
+* Add an admin interface to easily manage variables and set options.
 
 Add a .env file with the variables below and use 'foreman start' to test localy:
 
