@@ -11,6 +11,7 @@ The untouched api responses are available at:
 /api/twitter /api/github /api/instagram
 
 TODO: 
+* Error handling and checking that env variables are set.
 * Add support for facebook.
 * More github events (only pushevents right now).
 * Better cache system.

@@ -28,8 +28,7 @@ feed.update = function(callback) {
 			});
 		}],
 		function(err, data) {
-			if (err) console.log(err);
-
+			
 			feed.cache = data[0].concat(data[1]).concat(data[2]);
 
 			function compare(a,b) {
@@ -43,8 +42,6 @@ feed.update = function(callback) {
 			feed.cache.sort(compare);
 
 			lastUpdated = new Date();
-
-			console.log("Finished updating feed.");
 
 			callback();
 		}
@@ -86,8 +83,6 @@ feed.getGithub = function(callback) {
     }
   };
 	request(options, function (error, response, body) {
-		// TODO: Add support for more eventtypes
-		console.log(error);
 		callback(error, JSON.parse(body).filter(function(v) { return v.type == 'PushEvent'} ));
 	});
 }
