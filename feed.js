@@ -1,6 +1,6 @@
 var feed = {}, 
 	async = require('async'),
-	OAuth = require('OAuth'),
+	OAuth = require('oauth'),
 	request = require('request'),
 	util = require('util');
 

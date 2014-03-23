@@ -1,9 +1,5 @@
 var express = require('express'), 
 	app = express(),
-	async = require('async'),
-	OAuth = require('OAuth'),
-	request = require('request'),
-	util = require('util'),
 	feed = require('./feed');
 
 // force refresh of cache
