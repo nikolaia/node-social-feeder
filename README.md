@@ -1,7 +1,7 @@
-nodejs-social-feeder
+node-social-feeder
 ====================
 
-Merge your social feeds to one single feed. 
+Get your social feeds as one single feed to display on your personal blog or company page.
 
 Currently includes twitter, github and instagram.
 
@@ -11,6 +11,7 @@ The untouched api responses are available at:
 /api/twitter /api/github /api/instagram
 
 TODO: 
+* Turn into node module.
 * Error handling and checking that env variables are set.
 * Add support for facebook.
 * More github events (only pushevents right now).
